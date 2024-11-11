@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="icon" href="https://as1.ftcdn.net/v2/jpg/03/96/71/58/1000_F_396715828_lgMGn17l0Z4FMFkJbejg2QBZK7DNX368.jpg">
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <center>
+     <div class="container">
+        <center class="border-container">
+            <h2 class="title">login</h2>
+            <form class="userdata" onclick="display(webpage.html)">
+                <div class="user">
+                    <i class='bx bx-user'></i>
+                    <input type="text" name="username" class ="style" id="username" placeholder="username" required><br>
+                </div>
+                <div class="userpassword">
+                    <i class='bx bx-lock-alt'></i> 
+                    <input type="password" name="password" class="style" id="password" placeholder="password" required><br>
+                </div>
+            </form>
+            <button class="submit">Submit</button>
+            <div class="toggle" id="toggleform"><a href="#">Don't have an account yet? Sign up</a></div>
+        </center>
+    </div>
+</center>
+
+<script>
+    
+    // Toggle between login and sign up
+    let title = document.getElementsByClassName("title")[0];
+    let toggle = document.getElementById("toggleform").getElementsByTagName("a")[0];
+
+    toggle.addEventListener("click", function(e) {
+        e.preventDefault(); // Prevent the default anchor behavior
+        if (title.innerText === "login") {
+            toggle.innerText = "Already have an account? Login";
+            title.innerText = "sign up";
+        } else {
+            toggle.innerText = "Don't have an account yet? Sign up";
+            title.innerText = "login";
+        }
+    });
+
+    // Validation on submit
+    let correctUsername = "abc";
+    let correctPassword = "123";
+    let submit = document.getElementsByClassName("submit")[0];
+
+    submit.addEventListener("click", function() {
+        let username = document.getElementById("username").value;
+        let userPassword = document.getElementById("password").value;
+
+        if (username === correctUsername && userPassword === correctPassword) {
+            window.location.href="webpage.html"
+        } else {
+            alert("Invalid login");
+        }
+    });
+</script>
+</body>
+</html>

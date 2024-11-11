@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Amazon </title>
+    <style>
+   
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #232F3E;
+            color: white;
+            padding: 10px;
+        }
+        
+        
+        .nav-bar1 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 100px;
+            margin-right: 10px;
+        }
+        
+        .nav-bar1 p, 
+        .nav-bar1 a {
+            margin-left: 10px;
+        }
+        
+        
+        .nav-bar2 {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        form {
+            display: flex;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        
+        select, 
+        input {
+            padding: 5px;
+            border: none;
+            outline: none;
+        }
+        
+        input {
+            width: 550px;
+        }
+        
+        button {
+            background-color: #febd69;
+            border: none;
+            padding: 5px 10px;
+        
+        }
+        
+        
+        .nav-bar3 {
+            margin-left: 15px;
+            margin-right: 18px;
+            color: white;
+        }
+        
+        
+        .list {
+            background-color: #37475A;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .list a {
+            color: white;
+        }
+         
+        
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+        
+            body {
+              display: flex;
+              min-height: 100vh;
+              background-color: #f0f0f0;
+              flex-direction: column;
+              font-family: Arial, sans-serif;
+            }
+        
+            .container {
+              display: flex;
+              justify-content:center;
+              align-items:center;
+            }
+        
+            .image_item {
+              position: relative;
+              width: 100%;
+              max-width: 600px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+        
+            .img1 {
+              position: absolute;
+              width: 100%;
+              opacity: 0;
+              transition: opacity 2s ease-in-out;
+              height: 100%;
+            }
+        
+            .img1 img {
+                 width:88rem;
+                 height: auto;  
+                 margin-left: -25rem;
+                 margin-right: 100rem ;
+            }
+        
+        
+            p {
+              margin: 0;
+              padding: 5px 10px;
+              color: white;
+              background-color: rgba(0, 0, 0, 0.5);
+              font-size: 1rem;
+              border-radius: 5px;
+              text-align: center;
+            }
+        
+            /* Animation for smooth transitions with 20s visibility */
+            @keyframes blinkImages1 {
+              0%, 20% { opacity: 1; }
+              23%, 100% { opacity: 0; }
+            }
+        
+            @keyframes blinkImages2 {
+              0%, 23% { opacity: 0; }
+              26%, 46% { opacity: 1; }
+              49%, 100% { opacity: 0; }
+            }
+        
+            @keyframes blinkImages3 {
+              0%, 52% { opacity: 0; }
+              56%, 76% { opacity: 1; }
+              79%,100% { opacity: 0; }
+            }
+
+            @keyframes blinkImages4{
+                0%, 82% { opacity: 0; }
+                85%, 100% { opacity: 1}
+            }
+        
+            /* Apply animation to the images */
+            .img1:nth-child(1) {
+              animation: blinkImages1 20s infinite;
+            }
+        
+            .img1:nth-child(2) {
+              animation: blinkImages2 20s infinite;
+            }
+        
+            .img1:nth-child(3) {
+              animation: blinkImages3 20s infinite;
+            }
+
+            .img1:nth-child(4){
+                animation: blinkImages4 20s infinite;
+            }
+          </style>
+</head>
+<body>
+<div>
+    
+    <div class="navbar">
+        <div class="nav-bar1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="logo" />
+            <p>Delivering to Navi Mumbai 400703</p>
+            <a href="#">Update location</a>
+        </div>
+        
+        <div class="nav-bar2">
+                <input type="text" placeholder="Search Amazon.in">
+                <button type="submit">Search</button>
+        
+        </div>
+
+        <div class="nav-bar3">
+            <a href="#">Sign in</a>
+            <a href="#">Orders</a>
+            <a href="#">Cart (0)</a>
+        </div>
+    </div>
+
+    <div class="list">
+        <a href="#">All</a>
+        <a href="#">home</a>
+        <a href="#">about</a>
+        <a href="#">Electronics</a>
+        <a href="#">Fashion</a>
+    </div>
+</div>
+    <div class="container">
+        <div class="image_item">
+          <div class="img1">
+            <img src="https://res.cloudinary.com/dayyhdcwc/image/upload/v1730129649/screenshot1_hzmjuy.png" alt="Amazon" class="1screenshot"/>
+            <p>get 20% discount!! collect your offers now</p>
+          </div>
+          <div class="img1">
+            <img src="https://res.cloudinary.com/dayyhdcwc/image/upload/v1730129703/screenshot2_eyikno.png" alt="amazon2" class="1screenshot"/>
+            <p>get amazing decoratives under 499</p>
+          </div>
+          <div class="img1">
+            <img src="https://res.cloudinary.com/dayyhdcwc/image/upload/v1730129747/screenshot3_ti23tc.png" alt="amazon3" class="1screenshot"/>
+            <p>deals on hairdyers under 999</p>
+          </div>
+          <div class="img1">
+                <img src="https://res.cloudinary.com/dayyhdcwc/image/upload/v1730129791/sreenshot4_irtx7w.png" alt="amazon4" class="1screenshot"/>
+                <p>best sellers starting 199 great price & fast delivery</p>
+          </div>
+                
+          
+        </div>
+      </div>
+
+</body>
+</html>
