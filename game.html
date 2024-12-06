@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chrome Dino</title>
+</head>
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #222; /* Darker shade for a clean look */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.dino-game {
+    width: 600px;
+    height: 200px;
+    border: 2px solid #fff; /* White border for better contrast */
+    border-radius: 8px;
+    background-color: #444; /* Neutral game area background */
+    position: relative;
+    overflow: hidden;
+}
+
+#dino {
+    width: 55px;
+    height: 32px;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    background-color: rgb(1, 15, 1); /* Green color for Dino */
+    border-radius: 11px;
+    border-top-left-radius: 1500px;
+    border-bottom-right-radius: 1000px;
+    color: black;
+}
+
+#cactus {
+    width: 30px;
+    height: 39px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(9, 7, 7); /* Red color for Cactus */
+    border-radius: 3px;
+    border-radius: 16px;
+}
+
+.move-cactus {
+    animation: moveCactus 1.5s infinite linear;
+}
+
+@keyframes moveCactus {
+    from {
+        right: -30px;
+    }
+    to {
+        right: 600px;
+    }
+}
+
+.jump {
+    animation: jumpDino 0.5s ease-out;
+}
+
+@keyframes jumpDino {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 100px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    background-color:orangered; /* Score box background */
+    border: 1px solid #fff;
+    border-radius: 4px;
+}
+
+</style>
+
+<body>
+    <div class="dino-game">
+        <input type="text" id="score" value="0" readonly />
+        <!-- Inline SVG for Dino -->
+        <div id="dino">
+            <?xml version="1.0" encoding="utf-8"?><svg version="1.1" fill="aqua" id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 122.88 78.12" style="enable-background:new 0 0 122.88 78.12" xml:space="preserve">
+                <style type="text/css">
+                    .st0 {
+                        fill-rule: evenodd;
+                        clip-rule: evenodd;
+                    }
+                </style>
+                <g>
+                    <path class="st0"
+                        d="M89.08,19.03c0.68-1.09,1.21-2.3,1.61-3.61c1.22-3.99,0.17-7.02,3.68-10.15c1.45-1.29,3.26-2.02,5.33-2.37 c2.54-1.37,5.31-0.85,8.31,1.53c0.77,0.02,1.5,0.07,2.2,0.15l0-0.01l0.46-2.77c0.19-1.17,1.29-1.96,2.46-1.77 c1.17,0.19,1.96,1.29,1.77,2.46l-0.46,2.77c-0.01,0.07-0.03,0.14-0.05,0.21c0.82,0.27,1.56,0.59,2.23,0.95l0.01-0.01l2.33-3.42 c0.67-0.98,2-1.23,2.98-0.56c0.98,0.67,1.23,2,0.56,2.98l-2.33,3.42c-0.1,0.14-0.21,0.27-0.33,0.38c0.87,1.32,1.14,2.79,0.75,4.24 c-1.05,3.91-3.72,4.4-7.12,5.07c-4.23,0.83-8.16,0.8-12.04-1c6.04,6.04,10.18,5.88,16.88,4.59c-4.05,3.03-12.99,5.22-20.5,3.22 c-0.93,3.06-1.93,5.92-3.05,8.53c1.01,0.26,1.99,0.57,2.94,0.94c1.86,0.71,3.64,1.62,5.36,2.72c1.36,0.87,1.75,2.68,0.88,4.04 c-0.87,1.36-2.68,1.75-4.04,0.88c-1.37-0.88-2.79-1.6-4.28-2.17c-1.15-0.44-2.34-0.78-3.56-1.02c-0.41,0.69-0.83,1.35-1.27,1.99 c0.35,0.17,0.7,0.34,1.05,0.51c2.35,1.16,4.62,2.49,6.22,3.45c1.38,0.83,1.83,2.62,1.01,4.01c-0.83,1.38-2.62,1.83-4,1.01 c-1.49-0.89-3.61-2.13-5.81-3.22c-0.82-0.41-1.65-0.79-2.44-1.12c-1.45,1.33-3.05,2.47-4.82,3.4c0.14,7.34-1.87,12.74-6.78,15.52 c0.67,2.25,1.82,4.12,3.59,5.48c2.93,2.25,6.35,1.8,9.4,4.2c1.23,0.96,1.97,2.16,2.1,3.66H79.15c-2.53-1.87-4.81-3.82-6.84-5.85 c-3.76-3.76-5.75-4.75-4.69-9.72l1.26-5.86c-9.24,9.13-17.51,4.79-14.87,13.99c5.03,1.37,8.59,3.54,8.96,7.43H50.73 c-2.86-5.24-3.94-10.36-4.52-16.3c1.59-0.94,3.31-2.16,4.16-3.55c2.18-3.6-1.07-2.93-3.07-2.67C25.09,58.46,8.69,57.09,0,50.13 c42.63,0.93,38.83-23.28,75.72-24.7C81.5,25.21,85.61,24.59,89.08,19.03L89.08,19.03z M105.75,9.54c1.28,0,2.33,1.04,2.33,2.33 c0,1.28-1.04,2.33-2.33,2.33c-1.28,0-2.33-1.04-2.33-2.33C103.42,10.59,104.46,9.54,105.75,9.54L105.75,9.54z" />
+                </g>
+            </svg>
+        </div>
+
+        <!-- Inline SVG for Cactus -->
+        <div id="cactus">
+            <?xml version="1.0" encoding="utf-8"?><svg version="1.1" id="Layer_1" fill="white"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 96.52 122.88" style="enable-background:new 0 0 96.52 122.88" xml:space="preserve">
+                <style type="text/css">
+                    .st0 {
+                        fill-rule: evenodd;
+                        clip-rule: evenodd;
+                    }
+                </style>
+                <g>
+                    <path class="st0"
+                        d="M65.09,20.23l-0.04,4.55c0.76-0.67,1.91-0.72,2.73-0.06c0.91,0.73,1.05,2.06,0.32,2.97l-2.52,3.11 c-0.17,0.21-0.37,0.38-0.59,0.51l-0.32,33.87c0.48-0.18,0.92-0.39,1.32-0.63c0.91-0.54,1.75-1.32,2.51-2.33 c1.82-2.42,2.8-4.83,3.32-7.4c-0.16-0.11-0.3-0.24-0.42-0.4l-2.52-3.11c-0.73-0.91-0.59-2.24,0.32-2.97 c0.91-0.73,2.24-0.59,2.97,0.32l0.2,0.25c0.02-1.33,0.01-2.71,0-4.17l-0.01-0.65c-0.37-0.12-0.7-0.35-0.97-0.68l-2.52-3.11 c-0.73-0.91-0.59-2.24,0.32-2.97c0.91-0.73,2.24-0.59,2.97,0.32l0.13,0.16v-1.91c0-5.73,4.65-10.38,10.38-10.38 c5.73,0,10.38,4.65,10.38,10.38v2.87c0.76-0.62,1.87-0.64,2.66-0.01c0.91,0.73,1.05,2.06,0.32,2.97l-2.52,3.11 c-0.14,0.17-0.3,0.32-0.47,0.43c0.02,1.55,0.03,3.04,0.01,4.5c0.76-0.62,1.87-0.65,2.66-0.01c0.91,0.73,1.05,2.06,0.32,2.97 l-2.52,3.11c-0.24,0.29-0.53,0.51-0.86,0.64c-0.71,5.9-2.63,11.59-7.62,18.21c-2.35,3.12-5.17,5.65-8.43,7.61 c-3.22,1.93-6.74,3.22-10.56,3.9c-0.53,0.09-1.06,0.14-1.59,0.15l-0.39,36.52H34.31l-0.24-17.91c-1.06,0.15-2.17,0.15-3.28-0.05 c-3.81-0.68-7.34-1.97-10.56-3.9c-3.26-1.95-6.08-4.48-8.43-7.61c-4.5-5.97-6.5-12.06-7.37-18.2c-0.55-0.05-1.07-0.32-1.44-0.78 l-2.52-3.11c-0.73-0.91-0.59-2.24,0.32-2.97c0.91-0.73,2.24-0.59,2.97,0.32l0.11,0.13c-0.07-1.59-0.09-3.18-0.09-4.77 c-0.3-0.13-0.57-0.34-0.79-0.61l-2.52-3.11c-0.73-0.91-0.59-2.24,0.32-2.97c0.91-0.73,2.24-0.59,2.97,0.32l0.02,0.02l0-1.13v-1.53 c-0.3-0.13-0.58-0.34-0.8-0.61L0.47,51.3c-0.73-0.91-0.59-2.24,0.32-2.97c0.91-0.73,2.24-0.59,2.97,0.32l0.02,0.02v-4.66 c-0.3-0.13-0.58-0.34-0.8-0.61l-2.52-3.11c-0.73-0.91-0.59-2.24,0.32-2.97c0.91-0.73,2.24-0.59,2.97,0.32l0.36,0.44 c1.17-4.46,5.22-7.74,10.04-7.74c4.77,0,8.8,3.22,10.01,7.61l0.25-0.31c0.73-0.91,2.06-1.05,2.97-0.32 c0.91,0.73,1.05,2.06,0.32,2.97L25.2,43.4c-0.19,0.23-0.41,0.41-0.66,0.54v4.57c0.75-0.78,1.99-0.88,2.85-0.18 c0.91,0.73,1.05,2.06,0.32,2.97l-2.52,3.11c-0.19,0.23-0.41,0.41-0.66,0.54v1.6l0,0.97c0.75-0.79,1.99-0.88,2.85-0.19 c0.91,0.73,1.05,2.06,0.32,2.97l-2.52,3.11c-0.21,0.26-0.46,0.45-0.74,0.58c0.01,1.51,0.04,3.01,0.14,4.47 c0.75-0.73,1.95-0.8,2.79-0.13c0.91,0.73,1.05,2.06,0.32,2.97l-2.33,2.89c0.57,2.49,1.5,4.76,2.96,6.72 c0.76,1.01,1.6,1.79,2.51,2.33c0.83,0.5,1.83,0.87,2.99,1.12l-0.58-53.06c-0.23-0.13-0.44-0.3-0.61-0.52l-2.52-3.11 c-0.73-0.91-0.59-2.24,0.32-2.97c0.82-0.66,1.97-0.61,2.73,0.07l-0.05-4.55c-0.18-0.12-0.35-0.27-0.49-0.44l-2.52-3.11 c-0.73-0.91-0.59-2.24,0.32-2.97c0.85-0.68,2.06-0.6,2.81,0.15c2.38-18.47,29.27-18.46,31.67,0.01c0.75-0.76,1.97-0.84,2.82-0.16 c0.91,0.73,1.05,2.06,0.32,2.97l-2.52,3.11C65.44,19.97,65.27,20.11,65.09,20.23L65.09,20.23z" />
+                </g>
+            </svg>
+        </div>
+    </div>
+</body>
+<script>
+    const dino = document.getElementById("dino"),
+        cactus = document.getElementById("cactus"),
+        scoreInput = document.getElementById("score");
+    let gameStarted = false, score = 0, scoreInterval;
+
+    function jump() {
+        if (!dino.classList.contains("jump")) {
+            dino.classList.add("jump");
+            setTimeout(() => dino.classList.remove("jump"), 500);
+        }
+    }
+
+    function startGame() {
+        gameStarted = true;
+        score = 0;
+        scoreInput.value = score;
+        cactus.classList.add("move-cactus");
+
+        scoreInterval = setInterval(() => {
+            if (gameStarted) scoreInput.value = ++score;
+        }, 1000);
+
+        setInterval(() => {
+            if (!gameStarted) return;
+            const dinoBottom = parseInt(getComputedStyle(dino).bottom),
+                cactusRight = parseInt(getComputedStyle(cactus).right);
+            if (cactusRight > 500 && cactusRight < 600 && dinoBottom <= 10) {
+                alert("Game Over!");
+                gameStarted = false;
+                cactus.classList.remove("move-cactus");
+                clearInterval(scoreInterval);
+            }
+        }, 10);
+    }
+
+    document.addEventListener("keydown", () => {
+        if (!gameStarted) startGame();
+        jump();
+    });
+
+</script>
+
+</html>
